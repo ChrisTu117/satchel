@@ -98,8 +98,9 @@ per IP address and day. If it answers 429, run it with your own testnet account:
   50% to the treasury) and a members-only board (`post`). Every card keeps an on-chain
   history: holders, withdrawals, spending, sales, failures.
 - **No admin.** `new` is `#[private]`; no method changes the configuration or the
-  wallet code hash. The final step for the live deployment is deleting the club
-  account's last access key (`npm run check:live -- --locked`).
+  wallet code hash. The live club account `satchel-club.testnet` has no access keys
+  at all (deleted on 2026-11-09), so nobody can redeploy or change it;
+  `npm run check:live -- --locked` verifies this.
 
 ## Threat model: how a seller could try to keep the money
 
