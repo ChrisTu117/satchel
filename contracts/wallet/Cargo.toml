@@ -1,0 +1,17 @@
+[package]
+name = "satchel-wallet"
+description = "Stateless wallet that lives on <token_id>.<collection> and only obeys its parent collection. No SDK: ~3 KB of wasm, so the global-contract deploy is cheap."
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+
+[lints.rust.unexpected_cfgs]
+level = "warn"
+check-cfg = ['cfg(near)']

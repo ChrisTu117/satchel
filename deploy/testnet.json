@@ -1,0 +1,16 @@
+{
+  "network": "testnet",
+  "contract": "satchel-club.testnet",
+  "wallet_code": "res/satchel_wallet.wasm, deployed as a global contract by hash from satchel-club.testnet",
+  "config": {
+    "name": "Satchel Club",
+    "treasury": "satchel-treasury.testnet",
+    "wallet_code_hash": "G3DQHhasjNqm6gcDxvGbh6pmmnBEMhDCjwPLZiDAyUgg",
+    "mint_price": "100000000000000000000000",
+    "wallet_reserve": "10000000000000000000000",
+    "max_cards": 100,
+    "ticket_min_price": "10000000000000000000000",
+    "member_share_bps": 5000,
+    "royalty_bps": 500
+  }
+}

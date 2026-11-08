@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Satchel · cards that are wallets</title>
+  <meta name="description" content="Club membership NFTs on NEAR where every card is a real account. Whoever holds the card controls its money." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Satchel <span class="sub">membership cards that are wallets</span></h1>
+      <p class="lede">Every card in this club is an NFT <b>and</b> a real NEAR account, for example <code id="rule-example">7.&lt;club&gt;</code>. Anyone can send NEAR to it from any wallet. Ticket sales pay into every card's account. Whoever holds the card controls that money. Give or sell the card and the money and the members-only access go with it; the old holder keeps nothing.</p>
+      <p class="meta">NEAR testnet · club contract <a id="club-link" target="_blank" rel="noopener"></a></p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p id="error" class="toast err" hidden></p>
+    <p id="toast" class="toast" hidden></p>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Club</h2>
+        <div class="row"><span class="muted">Cards</span><b id="stat-cards">–</b></div>
+        <div class="row"><span class="muted">Tickets sold</span><b id="stat-tickets">–</b></div>
+        <div class="row"><span class="muted">Paid into card accounts</span><b id="stat-to-cards">–</b></div>
+        <div class="row"><span class="muted">Earned by a founding card</span><b id="stat-per-card">–</b></div>
+        <div class="row"><span class="muted">Cards resold</span><b id="stat-sales">–</b></div>
+        <p class="tiny muted">Mint price <span id="rule-mint">–</span> NEAR · <span id="rule-share">–</span> of every ticket goes to the cards · <span id="rule-royalty">–</span> royalty on resales · minimum ticket <span id="rule-ticket-min">–</span> NEAR. Fixed at launch; the contract has no owner.</p>
+      </article>
+      <article class="card">
+        <h2>You</h2>
+        <div id="me"></div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Cards</h2>
+      <div id="cards" class="tiles"></div>
+    </section>
+
+    <section class="card" id="card"></section>
+
+    <section class="card">
+      <h2>Members' board</h2>
+      <p class="tiny muted">Anyone can read it. Only the current holder of a card can post with it, enforced by the contract.</p>
+      <ul id="board" class="board"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>Built at NEAR HACKATHON. Testnet only. Source, tests and threat model: <a href="https://github.com/ChrisTu117/satchel">github.com/ChrisTu117/satchel</a>.</p>
+  </footer>
+  <script type="module" src="app.js?v=b9802cea5d"></script>
+</body>
+</html>
