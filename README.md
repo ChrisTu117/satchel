@@ -135,7 +135,7 @@ synchronously on NEAR).
 | A card's account can call other contracts with its own money | sandbox `card_account_can_act` (the card buys a ticket) |
 | A failed wallet order changes nothing and unlocks the card | unit `failed_wallet_order_unlocks_and_records_nothing`; sandbox `card_is_a_real_account` |
 | Nobody else can initialize the club; there is no admin method | sandbox `nobody_else_can_initialize`; `npm run check:abi` |
-| The live club is this code with these parameters | `npm run check:live` |
+| The live club is this code with these parameters, and nobody holds a key to its account | `npm run check:live -- --locked` |
 
 ## Parameters of the live club (`deploy/testnet.json`)
 
