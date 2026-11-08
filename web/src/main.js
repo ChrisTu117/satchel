@@ -1,4 +1,5 @@
 import {
+  accessKeyCount,
   accountUrl,
   call,
   createGuest,
@@ -198,6 +199,7 @@ function renderCard() {
     <div class="row head"><h2>Card #${esc(c.token_id)}</h2>${c.busy ? `<span class="tag">wallet order in flight</span>` : ""}</div>
     <div class="row"><span class="muted">Its account</span><a href="${accountUrl(c.wallet)}" target="_blank" rel="noopener">${esc(c.wallet)}</a></div>
     <div class="row"><span class="muted">Balance</span><b class="big">${b ? near(b.total) : "?"} NEAR</b></div>
+    <div class="row"><span class="muted">Access keys on that account</span><span id="keys">checking…</span></div>
     <div class="row"><span class="muted">Earned from tickets</span><span>${near(c.earned_from_tickets)} NEAR</span></div>
     <div class="row"><span class="muted">Withdrawn / spent</span><span>${near(c.withdrawn)} / ${near(c.spent_by_calls)} NEAR</span></div>
     <div class="row"><span class="muted">Holder</span><a href="${accountUrl(c.owner_id)}" target="_blank" rel="noopener">${esc(short(c.owner_id))}</a></div>
@@ -205,6 +207,13 @@ function renderCard() {
     <div class="actions">${actions}</div>
     <h3>Holders</h3><ol class="holders">${holdersHtml}</ol>
     <h3>History</h3><div class="scroll"><table><thead><tr><th>When</th><th>What</th><th>By</th><th>Other</th><th>Amount</th><th></th></tr></thead><tbody>${eventsHtml}</tbody></table></div>`;
+  accessKeyCount(c.wallet)
+    .then((n) => {
+      if ($("keys")) $("keys").innerHTML = n === 0 ? `<b class="ok-note">none: nobody can sign for it</b>` : `<b>${n}</b>`;
+    })
+    .catch(() => {
+      if ($("keys")) $("keys").textContent = "?";
+    });
   const on = (id, fn) => $(id) && ($(id).onclick = fn);
   on("btn-withdraw", () => {
     const amt = parseNear($("wd-amount").value);

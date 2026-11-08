@@ -158,6 +158,11 @@ export async function sendNear(guest, receiverId, yocto) {
   return { txHash: out?.transaction?.hash ?? out?.transaction_outcome?.id };
 }
 
+export async function accessKeyCount(accountId) {
+  const r = await provider.viewAccessKeyList({ accountId });
+  return r.keys.length;
+}
+
 export async function viewAccount(accountId) {
   return provider.viewAccount({ accountId });
 }
