@@ -32,8 +32,9 @@ On the live page (or `npm run serve` and open http://localhost:8081):
 1. Click **Create a testnet account**. The page asks the public testnet faucet for a
    throwaway account (10 testnet NEAR). Its key stays in your browser.
 2. Type `1` in "put NEAR in it" and click **Mint a card**. The page opens your card:
-   its account (for example `3.satchel-club.testnet`) holds 1.010 NEAR and the
-   explorer link shows a real account with **no access keys**.
+   its account (for example `3.satchel-club.testnet`) holds 1.010 NEAR, and the row
+   "Access keys on that account" reads **none: nobody can sign for it** (read live
+   from RPC; the explorer link shows the same account).
 3. Click **Withdraw to me** (0.5 NEAR): the card's balance drops and your account's rises.
 4. Post on the **members' board** with the card.
 5. **List for sale** at some price. Open another browser profile (or a private
